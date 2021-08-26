@@ -1,5 +1,5 @@
-import { FC, ReactElement, KeyboardEvent, ChangeEvent } from 'react';
-import styled from 'styled-components';
+import { FC, ReactElement, KeyboardEvent, ChangeEvent } from "react";
+import styled from "styled-components";
 
 export interface SearchBoxProps {
   searchTerm: string;
@@ -36,14 +36,20 @@ const SearchBoxContainer = styled.div`
   left: 0;
   text-align: center;
   overflow: auto;
-  background-image: linear-gradient(
-    to right,
-    #4f48e0,
-    #5300c1,
-    #6d00bc,
-    #8200b8,
-    #a6417e,
-    #cc2389
+  background: -webkit-linear-gradient(
+    bottom left,
+    rgba(1, 117, 255, 1),
+    rgba(255, 1, 52, 1)
+  );
+  background: -moz-linear-gradient(
+    bottom left,
+    rgba(1, 117, 255, 1),
+    rgba(255, 1, 52, 1)
+  );
+  background: linear-gradient(
+    to top right,
+    rgba(1, 117, 255, 1),
+    rgba(255, 1, 52, 1)
   );
 `;
 const Header1 = styled.h1`
