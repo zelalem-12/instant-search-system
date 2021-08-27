@@ -5,6 +5,17 @@ export const Hit = ({ item }): React.ReactElement => {
     <SearchList key={item.data_company.company_id}>
       <SearchListItem>
         <ul>
+          <List>job_title: {item.data_job.job_title}</List>
+          <List>job_type: {item.data_job.job_type}</List>
+          <List>job_pubListshed_at: {item.data_job.job_updated_at}</List>
+          <List>job_updated_at: {item.data_job.job_updated_at}</List>
+          <List>job_url: {item.data_job.job_url}</List>
+          <List>job_viewse: {item.data_job.job_views}</List>
+          <List>job_wage: {item.data_job.job_wage}</List>
+        </ul>
+      </SearchListItem>
+      <SearchListItem>
+        <ul>
           <List>company_id: {item.data_company.company_id}</List>
           <List>company_industry: {item.data_company.company_industry}</List>
           <List>company_name: {item.data_company.company_name}</List>
@@ -13,17 +24,6 @@ export const Hit = ({ item }): React.ReactElement => {
             company_type:
             {item.data_company.company_type}
           </List>
-        </ul>
-      </SearchListItem>
-      <SearchListItem className="search-list-item">
-        <ul>
-          <List>job_title: {item.data_job.job_title}</List>
-          <List>job_type: {item.data_job.job_type}</List>
-          <List>job_pubListshed_at: {item.data_job.job_updated_at}</List>
-          <List>job_updated_at: {item.data_job.job_updated_at}</List>
-          <List>job_url: {item.data_job.job_url}</List>
-          <List>job_viewse: {item.data_job.job_views}</List>
-          <List>job_wage: {item.data_job.job_wage}</List>
         </ul>
       </SearchListItem>
       <SearchListItem>
