@@ -1,8 +1,21 @@
 import { FC, ReactElement, useState, KeyboardEvent, ChangeEvent } from "react";
 import styled from "styled-components";
-export const SearchBox = ({ currentRefinement, refine }): ReactElement => {
+export const SearchBox = ({ refine }): ReactElement => {
   const [searchTerm, setSearchTerm] = useState("");
-  console.log({ searchTerm });
+
+  const onKeyEnterSendMessage = (
+    event: KeyboardEvent<HTMLInputElement>
+  ): void => {
+    if (event.code === "Enter") {
+      refine(searchTerm);
+    }
+  };
+  const onChangeEvent = (event: ChangeEvent<HTMLInputElement>): void => {
+    event.preventDefault();
+    const value = event.target.value || "";
+    setSearchTerm(value);
+  };
+  if (!searchTerm) refine("");
   return (
     <SearchBoxContainer>
       <Header1>inploi Test Application</Header1>
@@ -10,10 +23,11 @@ export const SearchBox = ({ currentRefinement, refine }): ReactElement => {
         <Input
           type="search"
           placeholder="Search for anything..."
-          value={currentRefinement}
-          onChange={(event) => setSearchTerm(event.currentTarget.value)}
+          value={searchTerm}
+          onChange={onChangeEvent}
+          onKeyDown={onKeyEnterSendMessage}
         />
-        <Button onClick={refine(searchTerm)}>Search</Button>
+        <Button onClick={() => refine(searchTerm)}>Search</Button>
       </FormContainer>
     </SearchBoxContainer>
   );

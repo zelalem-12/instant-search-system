@@ -21,7 +21,11 @@ export const Home: FC = (): ReactElement => {
   return (
     <Layout title="Home">
       <InstantSearch searchClient={searchClient} indexName="dev_jobs_index">
-        <CustomSearchBox autoFocus searchAsYouType={false} />
+        <CustomSearchBox
+          autoFocus
+          searchAsYouType={false}
+          showLoadingIndicator
+        />
 
         <CustomeHits />
       </InstantSearch>

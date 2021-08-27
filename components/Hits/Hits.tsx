@@ -17,15 +17,15 @@ export const Hits = ({ hits }): ReactElement => {
         </tr>
       </thead>
       <tbody>
-        {hits.map((hit) => (
-          <Hit key={hit.id} hit={hit} />
+        {hits.map((hit, key) => (
+          <Hit key={key} hit={hit} />
         ))}
       </tbody>
     </Table>
   );
 };
 
-const Table = styled.div`
+const Table = styled.table`
   width: 100%;
   border-collapse: collapse;
   font-family: helvetica;

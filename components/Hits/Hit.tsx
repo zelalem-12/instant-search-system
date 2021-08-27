@@ -7,6 +7,7 @@ export interface LayoutProps {
 export const Hit = ({
   hit: { data_company, data_job, data_location },
 }): React.ReactElement => {
+  // console.log({ data_company, data_job, data_location });
   return (
     <tr>
       <Td>{data_job.job_title}</Td>
