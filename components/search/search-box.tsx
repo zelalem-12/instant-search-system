@@ -1,29 +1,19 @@
-import { FC, ReactElement, KeyboardEvent, ChangeEvent } from "react";
+import { FC, ReactElement, useState, KeyboardEvent, ChangeEvent } from "react";
 import styled from "styled-components";
-
-export interface SearchBoxProps {
-  searchTerm: string;
-  onSearch: () => void;
-  changeHandler: (event: ChangeEvent<HTMLInputElement>) => void;
-  // onTypingMessage: (event: ChangeEvent<HTMLInputElement>) => void;
-}
-
-export const SearchBox: FC<SearchBoxProps> = ({
-  searchTerm,
-  changeHandler,
-  onSearch,
-}): ReactElement => {
+export const SearchBox = ({ currentRefinement, refine }): ReactElement => {
+  const [searchTerm, setSearchTerm] = useState("");
+  console.log({ searchTerm });
   return (
     <SearchBoxContainer>
       <Header1>inploi Test Application</Header1>
       <FormContainer>
         <Input
-          type="text"
+          type="search"
           placeholder="Search for anything..."
-          value={searchTerm}
-          onChange={changeHandler}
+          value={currentRefinement}
+          onChange={(event) => setSearchTerm(event.currentTarget.value)}
         />
-        <Button onClick={onSearch}>Search</Button>
+        <Button onClick={refine(searchTerm)}>Search</Button>
       </FormContainer>
     </SearchBoxContainer>
   );
