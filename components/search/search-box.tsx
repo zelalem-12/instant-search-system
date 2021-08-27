@@ -1,6 +1,11 @@
 import { FC, ReactElement, useState, KeyboardEvent, ChangeEvent } from "react";
 import styled from "styled-components";
-export const SearchBox = ({ refine }): ReactElement => {
+
+interface SearchBoxType {
+  refine: (term: string) => void;
+}
+
+export const SearchBox: FC<SearchBoxType> = ({ refine }): ReactElement => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const onKeyEnterSendMessage = (
@@ -34,12 +39,13 @@ export const SearchBox = ({ refine }): ReactElement => {
 };
 
 const SearchBoxContainer = styled.div`
-  width: 100%;
+  display: flex;
+  flex-direction: column;
   height: 760px;
   top: 0;
   left: 0;
   text-align: center;
-  overflow: auto;
+  background: rgba(1, 117, 255, 1);
   background: -webkit-linear-gradient(
     bottom left,
     rgba(1, 117, 255, 1),
@@ -50,12 +56,14 @@ const SearchBoxContainer = styled.div`
     rgba(1, 117, 255, 1),
     rgba(255, 1, 52, 1)
   );
+
   background: linear-gradient(
-    to top right,
-    rgba(1, 117, 255, 1),
-    rgba(255, 1, 52, 1)
+    to right,
+    rgba(1, 100, 250, 1),
+    rgba(200, 1, 52, 0.8)
   );
 `;
+
 const Header1 = styled.h1`
   position: relative;
   top: 30%;
@@ -64,6 +72,7 @@ const Header1 = styled.h1`
   font-size: 4rem;
   padding-bottom: 5rem;
 `;
+
 const FormContainer = styled.div`
   display: flex;
   justify-content: space-between;
@@ -80,10 +89,9 @@ const FormContainer = styled.div`
 const Input = styled.input`
   width: 85%;
   margin-right: 0.5rem;
-  padding: 0.5rem;
+  padding: 0.2rem;
   border: 0;
   font-size: large;
-  font-weight: bold;
   outline: none;
 `;
 
@@ -100,4 +108,6 @@ const Button = styled.button`
   &:hover {
     background-color: rgb(38, 9, 26);
   }
+  font-size: 2rem;
+  font-weight: bold;
 `;

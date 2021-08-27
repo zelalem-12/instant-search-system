@@ -4,37 +4,30 @@ import { Hit } from "./Hit";
 
 export const Hits = ({ hits }): ReactElement => {
   return (
-    <Table>
-      <thead>
-        <tr>
-          <Th>Job Title</Th>
-          <Th>Job Experiance </Th>
-          <Th>Job Type</Th>
-          <Th>Job Desctption</Th>
-          <Th>Company Name</Th>
-          <Th>Company Industry</Th>
-          <Th>Location </Th>
-        </tr>
-      </thead>
-      <tbody>
-        {hits.map((hit, key) => (
-          <Hit key={key} hit={hit} />
-        ))}
-      </tbody>
-    </Table>
+    <>
+      <ResultHeader>
+        <Header3>companey Data</Header3>
+        <Header3>Data Job</Header3>
+        <Header3>Data Location</Header3>
+      </ResultHeader>
+      {hits.map((item) => (
+        <Hit key={item.data_company.company_id} item={item} />
+      ))}
+    </>
   );
 };
 
-const Table = styled.table`
-  width: 100%;
-  border-collapse: collapse;
-  font-family: helvetica;
+const ResultHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  margin: 0 12rem;
+  margin-top: 2rem;
+  color: #fff; ;
 `;
 
-const Th = styled.th`
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  z-index: 2;
-  background: hsl(20, 50%, 70%);
+const Header3 = styled.h3`
+  max-width: 33%;
+  text-align: left;
+  border-bottom: #fff solid 0.2r;
 `;

@@ -26,7 +26,6 @@ export const Home: FC = (): ReactElement => {
           searchAsYouType={false}
           showLoadingIndicator
         />
-
         <CustomeHits />
       </InstantSearch>
     </Layout>
